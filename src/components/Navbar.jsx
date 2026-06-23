@@ -12,7 +12,7 @@ const Navbar = () => {
 
         <div className="navbar__left">
           <a href="#" className="navbar__logo" aria-label="Floralie">
-            <img src="../assets/images/logo_floralie.png" alt="Floralie" height="36" />
+            <img src="public/assets/images/logo_floralie.png" alt="Floralie" height="36" />
           </a>
 
           <span className="navbar__sep" />

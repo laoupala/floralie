@@ -23,7 +23,7 @@ const Footer = () => (
 
         <div className="footer__brand">
           <div className="footer__logo">
-            <img src="../assets/images/logo_floralie.png" alt="Logo" />
+            <img src="public/assets/images/logo_floralie.png" alt="Logo" />
           </div>
           <p className="footer__tagline">votre fleuriste de confiance</p>
         </div>

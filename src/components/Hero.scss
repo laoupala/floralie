@@ -3,15 +3,24 @@
 .hero {
   display: grid;
   grid-template-columns: 1fr 420px 1fr;
-  min-height: calc(108vh - 61px); 
+  min-height: calc(108vh - 61px);
   overflow: hidden;
   height: 100vh;
 
+  @media (min-width: 1920px) { grid-template-columns: 1fr 601px 1fr; }
+
   @media (max-width: $bp-lg) { grid-template-columns: 1fr 340px 1fr; }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    height: 100vh;
+    min-height: calc(100vh - 61px);
+  }
 
   @media (max-width: $bp-md) {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 340px auto;
+    height: auto;
+    min-height: 100svh;
   }
 
   // ── LEFT ────────────────────────────────────────────
@@ -22,7 +31,20 @@
     padding: $sp-24 $sp-20 $sp-10;
     gap: $sp-2;
 
-    @media (max-width: $bp-md) { padding: $sp-8 $sp-5 $sp-6; }
+    @media (min-width: 1920px) { padding: 6rem 9rem 2.5rem; }
+
+    @media (max-width: 900px) {
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (max-width: $bp-md) {
+      margin: $sp-16 $sp-6 $sp-12;
+      padding: 6rem 1rem 2.5rem;
+      background: $color-green;
+      align-items: center;
+      text-align: center;
+    }
   }
 
   &__eyebrow {
@@ -31,6 +53,8 @@
     letter-spacing: .1em;
     text-transform: uppercase;
     color: $color-green-mid;
+
+    @media (max-width: $bp-md) { color: rgba($color-white, .6); }
   }
 
   &__title {
@@ -44,12 +68,16 @@
     font-size: clamp(1.6rem, 3.2vw, 2.4rem);
     font-weight: $fw-regular;
     color: $color-text;
+
+    @media (max-width: $bp-md) { color: $color-white; }
   }
 
   &__title-bold {
     font-size: clamp(1.8rem, 3.8vw, 2.8rem);
     font-weight: $fw-bold;
     color: $color-text;
+
+    @media (max-width: $bp-md) { color: $color-white; }
   }
 
   &__title-highlight {
@@ -62,6 +90,13 @@
     padding: $sp-1 $sp-3;
     border-radius: $r-sm;
     line-height: 1.25;
+
+    @media (max-width: 900px) { align-self: center; }
+
+    @media (max-width: $bp-md) {
+      align-self: center;
+      background: rgba($color-white, .15);
+    }
   }
 
   &__desc {
@@ -69,6 +104,13 @@
     color: $color-text-muted;
     line-height: 1.75;
     max-width: 300px;
+
+    @media (max-width: 900px) { max-width: 88%; }
+
+    @media (max-width: $bp-md) {
+      color: rgba($color-white, .75);
+      max-width: 88%;
+    }
   }
 
   &__ctas {
@@ -76,6 +118,8 @@
     align-items: center;
     gap: $sp-5;
     flex-wrap: wrap;
+
+    @media (max-width: $bp-md) { justify-content: center; }
   }
 
   &__btn-primary {
@@ -93,6 +137,12 @@
       background: $color-green-mid;
       transform: translateY(-1px);
     }
+
+    @media (max-width: $bp-md) {
+      background: $color-white;
+      color: $color-green;
+      &:hover { background: $color-off-white; }
+    }
   }
 
   &__btn-video {
@@ -105,6 +155,11 @@
     transition: color .2s;
 
     &:hover { color: $color-green; }
+
+    @media (max-width: $bp-md) {
+      color: rgba($color-white, .85);
+      &:hover { color: $color-white; }
+    }
   }
 
   &__btn-video-icon {
@@ -121,6 +176,11 @@
     svg { margin-left: 2px; }
 
     .hero__btn-video:hover & { background: $color-green; }
+
+    @media (max-width: $bp-md) {
+      background: rgba($color-white, .2);
+      .hero__btn-video:hover & { background: rgba($color-white, .35); }
+    }
   }
 
   &__scroll {
@@ -131,6 +191,8 @@
     font-weight: $fw-medium;
     color: $color-text-muted;
     margin-top: $sp-4;
+
+    @media (max-width: $bp-md) { color: rgba($color-white, .5); }
   }
 
   // ── CENTER — Image ──────────────────────────────────
@@ -145,19 +207,21 @@
       display: block;
     }
 
-    @media (max-width: $bp-md) { height: 340px; }
+    @media (max-width: 900px) { img { object-position: center; } }
+
+    @media (max-width: $bp-md) { display: none; }
   }
 
   // ── RIGHT ───────────────────────────────────────────
   &__right {
+    @media (max-width: 900px) { display: none; }
     display: flex;
     flex-direction: column;
     padding: $sp-10;
     gap: $sp-8;
     justify-content: flex-end;
-    
 
-    @media (max-width: $bp-md) { padding: $sp-6 $sp-5; }
+    @media (max-width: $bp-md) { display: none; }
   }
 
   &__product-card {

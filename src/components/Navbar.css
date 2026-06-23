@@ -20,6 +20,11 @@
   height: 64px;
   gap: 1.5rem;
 }
+@media (min-width: 1920px) {
+  .navbar__inner {
+    max-width: 88%;
+  }
+}
 .navbar__left {
   display: flex;
   align-items: center;

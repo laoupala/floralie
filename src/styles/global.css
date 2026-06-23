@@ -23,6 +23,11 @@ body {
   padding: 0 1.5rem;
 }
 
+@media (min-width: 1920px) {
+  .container {
+    max-width: 71%;
+  }
+}
 a {
   text-decoration: none;
   color: inherit;

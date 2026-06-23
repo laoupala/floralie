@@ -1,7 +1,7 @@
 @use '../styles/variables' as *;
 
 .navbar {
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -18,6 +18,8 @@
     margin: 0 auto;
     height: 64px;
     gap: $sp-6;
+
+    @media (min-width: 1920px) { max-width: 88%; }
   }
 
   &__left {

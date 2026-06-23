@@ -20,6 +20,12 @@ body {
   padding: 0 $sp-6;
 }
 
+@media (min-width: 1920px) {
+  .container {
+    max-width: 71%;
+  }
+} 
+
 a { text-decoration: none; color: inherit; }
 button { cursor: pointer; border: none; background: none; font-family: $font-body; }
 img { max-width: 100%; display: block; }
