@@ -1,0 +1,96 @@
+@use 'sass:color';
+@use '../styles/variables' as *;
+
+.faq {
+  padding: $sp-8 0 $sp-16;
+  background: $color-green;
+
+
+  &__header {
+    text-align: center;
+    margin-bottom: $sp-8;
+  }
+
+  &__label {
+    display: block;
+    font-size: $fs-xs;
+    font-weight: $fw-semibold;
+    letter-spacing: 0.12em;
+    color: $color-white;
+    text-transform: uppercase;
+    margin-bottom: $sp-3;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp($fs-2xl, 4.5vw, 3.5rem);
+    font-weight: $fw-regular;
+    line-height: 1.05;
+    color: $color-white;
+    padding: $sp-1 $sp-3;
+    line-height: 1.25;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $sp-3;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  &__item {
+    background: $color-tag-bg; 
+    border-radius: $r-lg;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: box-shadow .2s, background .2s;
+    overflow: hidden;
+
+    &:hover { box-shadow: $shadow-sm; }
+
+    &--open {
+      background: $color-white;
+      border-color: color.adjust($color-border, $lightness: -8%);
+      box-shadow: $shadow-sm;
+    }
+  }
+
+  &__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $sp-5 $sp-6;
+    font-size: $fs-base;
+    font-weight: $fw-semibold;
+    color: $color-text;
+    user-select: none;
+    gap: $sp-4;
+  }
+
+  &__icon {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid $color-border;
+    background: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-text-muted;
+    flex-shrink: 0;
+    transition: border-color .2s, color .2s;
+
+    .faq__item--open & {
+      border-color: $color-dark;
+      color: $color-dark;
+    }
+  }
+
+  &__answer {
+    padding: $sp-4 $sp-6 $sp-5;
+    font-size: $fs-sm;
+    color: $color-text-muted;
+    line-height: 1.75;
+    border-top: 1px solid $color-border;
+  }
+}

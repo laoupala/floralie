@@ -1,0 +1,317 @@
+@use '../styles/variables' as *;
+
+.gallery {
+  padding: $sp-16 0;
+
+  // ── Header ──────────────────────────────────────────
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $sp-8;
+    align-items: end;
+    margin-bottom: $sp-8;
+
+    @media (max-width: $bp-md) { grid-template-columns: 1fr; gap: $sp-4; }
+  }
+
+  &__header-left {
+    display: flex;
+    flex-direction: column;
+    gap: $sp-3;
+  }
+
+  &__eyebrow {
+    font-size: $fs-xs;
+    font-weight: $fw-semibold;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: $color-green-mid;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp($fs-2xl, 4.5vw, 3.5rem);
+    font-weight: $fw-bold;
+    line-height: 1.05;
+    color: $color-white;
+    background: $color-green;
+    padding: $sp-1 $sp-3;
+    border-radius: $r-sm;
+    display: inline-block;
+  }
+
+  &__desc {
+    font-size: $fs-sm;
+    color: $color-text-muted;
+    line-height: 1.75;
+    max-width: 380px;
+    align-self: end;
+  }
+
+  // ── Filtres ─────────────────────────────────────────
+  &__filters {
+    display: flex;
+    gap: $sp-2;
+    flex-wrap: wrap;
+    margin-bottom: $sp-8;
+  }
+
+  &__filter {
+    padding: $sp-2 $sp-5;
+    border-radius: $r-full;
+    font-size: $fs-sm;
+    font-weight: $fw-medium;
+    border: 1.5px solid $color-border;
+    background: $color-white;
+    color: $color-text-muted;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover {
+      border-color: $color-green;
+      color: $color-green;
+    }
+
+    &--active {
+      background: $color-dark;
+      border-color: $color-dark;
+      color: $color-white;
+
+      &:hover {
+        background: $color-green;
+        border-color: $color-green;
+        color: $color-white;
+      }
+    }
+  }
+
+  // ── Grille ──────────────────────────────────────────
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 220px;
+    gap: $sp-4;
+
+    @media (max-width: $bp-lg) { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: $bp-sm) {
+      grid-template-columns: 1fr;
+      grid-auto-rows: 200px;
+    }
+  }
+
+  // ── CTA ─────────────────────────────────────────────
+  &__cta {
+    display: flex;
+    justify-content: center;
+    margin-top: $sp-10;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $sp-3;
+    padding: $sp-4 $sp-8;
+    background: $color-dark;
+    color: $color-white;
+    font-size: $fs-sm;
+    font-weight: $fw-semibold;
+    border-radius: $r-full;
+    transition: background .2s, gap .2s;
+
+    &:hover {
+      background: $color-green;
+      gap: $sp-4;
+    }
+  }
+
+  // ── Lightbox ─────────────────────────────────────────
+  &__lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba($color-dark, .85);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $sp-6;
+    animation: fadeIn .2s ease;
+  }
+
+  &__lightbox-inner {
+    position: relative;
+    background: $color-white;
+    border-radius: $r-xl;
+    overflow: hidden;
+    max-width: 680px;
+    width: 100%;
+    box-shadow: $shadow-lg;
+
+    img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+
+      @media (max-width: $bp-md) { height: 280px; }
+    }
+  }
+
+  &__lightbox-info {
+    padding: $sp-5 $sp-6;
+    display: flex;
+    flex-direction: column;
+    gap: $sp-2;
+
+    h3 {
+      font-size: $fs-lg;
+      font-weight: $fw-bold;
+      color: $color-text;
+    }
+  }
+
+  &__lightbox-close {
+    position: absolute;
+    top: $sp-4;
+    right: $sp-4;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba($color-dark, .6);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,.2);
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background .2s;
+
+    &:hover { background: $color-dark; }
+  }
+}
+
+// ── Cards ────────────────────────────────────────────
+.gallery-card {
+  position: relative;
+  border-radius: $r-xl;
+  overflow: hidden;
+  cursor: pointer;
+
+  &--large {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+  }
+
+  &:hover img { transform: scale(1.06); }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 30%,
+      rgba($color-dark, .7) 100%
+    );
+    transition: opacity .3s;
+  }
+
+  &:hover &__overlay { opacity: .85; }
+
+  &__content {
+    position: absolute;
+    bottom: $sp-5;
+    left: $sp-5;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: $sp-1;
+  }
+
+  &__category {
+    font-size: $fs-xs;
+    font-weight: $fw-semibold;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.7);
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: $fs-lg;
+    font-weight: $fw-regular;
+    color: $color-white;
+    line-height: 1.1;
+  }
+
+  &__zoom {
+    position: absolute;
+    top: $sp-4;
+    right: $sp-4;
+    z-index: 2;
+    width: 34px;
+    height: 34px;
+    border-radius: $r-md;
+    background: rgba($color-dark, .55);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,.2);
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .2s, background .2s;
+
+    &:hover { background: $color-dark; }
+  }
+
+  &:hover &__zoom { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+// ── Dots pagination ────────────────────────────────
+.gallery {
+    &__controls {
+      display: flex;
+      justify-content: center;
+      margin-top: $sp-8;
+    }
+  
+    &__dots {
+      display: flex;
+      align-items: center;
+      gap: $sp-2;
+      padding: $sp-2 0;
+    }
+  
+    &__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #c5c5c5;
+      border: none;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background .2s, transform .2s;
+  
+      &--active {
+        background: $color-green;
+        transform: scale(1.2);
+      }
+  
+      &:hover:not(&--active) { background: #999; }
+    }
+  }

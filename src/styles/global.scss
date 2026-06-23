@@ -1,0 +1,109 @@
+@use 'sass:color';
+@use 'variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: $font-body;
+  font-size: $fs-base;
+  color: $color-text;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $sp-6;
+}
+
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: $font-body; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+// ── Shared button classes ──────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $sp-2;
+  padding: $sp-3 $sp-6;
+  border-radius: $r-full;
+  font-size: $fs-sm;
+  font-weight: $fw-semibold;
+  cursor: pointer;
+  transition: all .2s ease;
+  white-space: nowrap;
+
+  &--dark {
+    background: $color-dark;
+    color: $color-white;
+    border: 1.5px solid $color-dark;
+    &:hover { background: $color-green; border-color: $color-green; }
+  }
+
+  &--outline-light {
+    background: transparent;
+    color: $color-white;
+    border: 1.5px solid rgba(255,255,255,.45);
+    &:hover { border-color: $color-white; }
+  }
+
+  &--light {
+    background: $color-off-white;
+    color: $color-dark;
+    border: 1.5px solid $color-off-white;
+    &:hover { background: color.adjust($color-off-white, $lightness: -4%); }
+  }
+
+  &--outline-dark {
+    background: transparent;
+    color: $color-text;
+    border: 1.5px solid $color-border;
+    &:hover { border-color: $color-dark; }
+  }
+
+  &--icon {
+    width: 36px; height: 36px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+    background: $color-dark;
+    color: $color-white;
+    flex-shrink: 0;
+    &:hover { background: $color-green; }
+  }
+}
+
+// ── Tag pill ──────────────────────────────────────────
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: $sp-2 $sp-4;
+  border-radius: $r-full;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  background: $color-tag-bg;
+  color: $color-text;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all .2s;
+
+  &:hover, &--active {
+    background: $color-dark;
+    color: $color-white;
+  }
+}
+
+// ── Section title utility ─────────────────────────────
+.section-eyebrow {
+  font-size: $fs-xs;
+  font-weight: $fw-semibold;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: $color-text-muted;
+  margin-bottom: $sp-2;
+}

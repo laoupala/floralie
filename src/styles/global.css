@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap");
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  color: #1a1a1a;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.btn--dark {
+  background: #0d1f18;
+  color: #ffffff;
+  border: 1.5px solid #0d1f18;
+}
+.btn--dark:hover {
+  background: #1e4d35;
+  border-color: #1e4d35;
+}
+.btn--outline-light {
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+}
+.btn--outline-light:hover {
+  border-color: #ffffff;
+}
+.btn--light {
+  background: #f4f1ec;
+  color: #0d1f18;
+  border: 1.5px solid #f4f1ec;
+}
+.btn--light:hover {
+  background: rgb(236.52, 231.48, 223.08);
+}
+.btn--outline-dark {
+  background: transparent;
+  color: #1a1a1a;
+  border: 1.5px solid #e0dbd3;
+}
+.btn--outline-dark:hover {
+  border-color: #0d1f18;
+}
+.btn--icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  justify-content: center;
+  background: #0d1f18;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+.btn--icon:hover {
+  background: #1e4d35;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: #e8e3dc;
+  color: #1a1a1a;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.2s;
+}
+.tag:hover, .tag--active {
+  background: #0d1f18;
+  color: #ffffff;
+}
+
+.section-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a5a5a;
+  margin-bottom: 0.5rem;
+}/*# sourceMappingURL=global.css.map */

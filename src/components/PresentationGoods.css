@@ -1,0 +1,79 @@
+.presentation {
+  padding: 9rem 0;
+}
+.presentation__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+}
+.presentation__text {
+  display: contents;
+  align-items: start;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .presentation__text {
+    grid-template-columns: 1fr;
+  }
+}
+.presentation__title {
+  font-family: "Anton", "Impact", sans-serif;
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: #ffffff;
+  background: #1e4d35;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  line-height: 1.25;
+}
+.presentation__desc {
+  font-size: 0.875rem;
+  color: #5a5a5a;
+  line-height: 1.75;
+  text-align: center;
+}
+.presentation__video {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 32px;
+  overflow: hidden;
+}
+.presentation__video video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+.presentation__play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  transition: background 0.2s;
+}
+.presentation__play::before {
+  content: "";
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  position: absolute;
+}
+.presentation__play svg {
+  position: relative;
+  z-index: 1;
+  color: #0d1f18;
+  margin-left: 3px;
+}
+.presentation__play:hover::before {
+  background: #ffffff;
+  transform: scale(1.08);
+}/*# sourceMappingURL=PresentationGoods.css.map */

@@ -1,0 +1,202 @@
+@use '../styles/variables' as *;
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 420px 1fr;
+  min-height: calc(108vh - 61px); 
+  overflow: hidden;
+  height: 100vh;
+
+  @media (max-width: $bp-lg) { grid-template-columns: 1fr 340px 1fr; }
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 340px auto;
+  }
+
+  // ── LEFT ────────────────────────────────────────────
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $sp-24 $sp-20 $sp-10;
+    gap: $sp-2;
+
+    @media (max-width: $bp-md) { padding: $sp-8 $sp-5 $sp-6; }
+  }
+
+  &__eyebrow {
+    font-size: $fs-xs;
+    font-weight: $fw-semibold;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: $color-green-mid;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: $sp-1;
+    line-height: 1.05;
+  }
+
+  &__title-thin {
+    font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+    font-weight: $fw-regular;
+    color: $color-text;
+  }
+
+  &__title-bold {
+    font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+    font-weight: $fw-bold;
+    color: $color-text;
+  }
+
+  &__title-highlight {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+    font-weight: $fw-bold;
+    color: $color-white;
+    background: $color-green;
+    padding: $sp-1 $sp-3;
+    border-radius: $r-sm;
+    line-height: 1.25;
+  }
+
+  &__desc {
+    font-size: $fs-sm;
+    color: $color-text-muted;
+    line-height: 1.75;
+    max-width: 300px;
+  }
+
+  &__ctas {
+    display: flex;
+    align-items: center;
+    gap: $sp-5;
+    flex-wrap: wrap;
+  }
+
+  &__btn-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: $sp-3 $sp-6;
+    background: $color-green;
+    color: $color-white;
+    font-size: $fs-sm;
+    font-weight: $fw-semibold;
+    border-radius: $r-full;
+    transition: background .2s, transform .15s;
+
+    &:hover {
+      background: $color-green-mid;
+      transform: translateY(-1px);
+    }
+  }
+
+  &__btn-video {
+    display: inline-flex;
+    align-items: center;
+    gap: $sp-3;
+    font-size: $fs-sm;
+    font-weight: $fw-medium;
+    color: $color-text;
+    transition: color .2s;
+
+    &:hover { color: $color-green; }
+  }
+
+  &__btn-video-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: $color-dark;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background .2s;
+    svg { margin-left: 2px; }
+
+    .hero__btn-video:hover & { background: $color-green; }
+  }
+
+  &__scroll {
+    display: flex;
+    align-items: center;
+    gap: $sp-3;
+    font-size: $fs-xs;
+    font-weight: $fw-medium;
+    color: $color-text-muted;
+    margin-top: $sp-4;
+  }
+
+  // ── CENTER — Image ──────────────────────────────────
+  &__center {
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    @media (max-width: $bp-md) { height: 340px; }
+  }
+
+  // ── RIGHT ───────────────────────────────────────────
+  &__right {
+    display: flex;
+    flex-direction: column;
+    padding: $sp-10;
+    gap: $sp-8;
+    justify-content: flex-end;
+    
+
+    @media (max-width: $bp-md) { padding: $sp-6 $sp-5; }
+  }
+
+  &__product-card {
+    display: flex;
+    flex-direction: column;
+    gap: $sp-3;
+    padding-bottom: $sp-6;
+  }
+
+  &__product-name {
+    font-size: $fs-xl;
+    font-weight: $fw-bold;
+    color: $color-text;
+    line-height: 1.2;
+  }
+
+  &__product-colors {
+    font-size: $fs-xs;
+    font-weight: $fw-semibold;
+    color: $color-text;
+  }
+
+  &__product-desc {
+    font-size: $fs-sm;
+    color: $color-text-muted;
+    line-height: 1.7;
+    max-width: 260px;
+  }
+
+  &__product-link {
+    display: inline-flex;
+    align-items: center;
+    gap: $sp-2;
+    font-size: $fs-sm;
+    font-weight: $fw-semibold;
+    color: $color-dark;
+    margin-top: $sp-2;
+    transition: gap .2s, color .2s;
+
+    &:hover { color: $color-green; gap: $sp-3; }
+  }
+}

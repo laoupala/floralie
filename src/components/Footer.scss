@@ -1,0 +1,221 @@
+@use '../styles/variables' as *;
+
+.footer {
+  background: $color-bg;
+  padding: $sp-8 $sp-6 $sp-8;
+
+  &__card {
+    background: $color-green;
+    border-radius: $r-2xl;
+    max-width: $container-max-1200;
+    margin: 0 auto;
+    padding: $sp-10 $sp-10 $sp-6;
+    color: rgba($color-white, .85);
+  }
+
+  // ── CTA ──────────────────────────────────────────
+  &__cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $sp-6;
+    padding-bottom: $sp-8;
+
+    @media (max-width: $bp-md) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__cta-text {
+    font-size: $fs-lg;
+    font-weight: $fw-regular;
+    line-height: 1.45;
+    color: $color-white;
+    margin: 0;
+  }
+
+  &__cta-btn {
+    flex-shrink: 0;
+    padding: $sp-3 $sp-6;
+    border-radius: $r-full;
+    background: $color-off-white;
+    color: $color-green;
+    font-size: $fs-sm;
+    font-weight: $fw-medium;
+    font-family: $font-body;
+    border: none;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+    white-space: nowrap;
+
+    &:hover {
+      background: $color-white;
+    }
+  }
+
+  // ── Séparateur ────────────────────────────────────
+  &__divider {
+    border: none;
+    border-top: 1px solid rgba($color-white, .15);
+    margin: 0 0 $sp-8;
+  }
+
+  // ── Grille principale ─────────────────────────────
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.6fr 1fr;
+    gap: $sp-8;
+    align-items: start;
+
+    @media (max-width: $bp-lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: $bp-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // ── Logo ──────────────────────────────────────────
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: $sp-3;
+  }
+
+  &__logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1.5px solid rgba($color-white, .35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      filter: brightness(0) invert(1); 
+    }
+  }
+
+  &__tagline {
+    font-size: $fs-xs;
+    color: rgba($color-white, .45);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0;
+  }
+
+  // ── Colonnes info ─────────────────────────────────
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: $sp-2;
+
+    p, a {
+      font-size: $fs-sm;
+      color: rgba($color-white, .65);
+      text-decoration: none;
+      line-height: 1.6;
+
+      &:hover { color: $color-white; }
+    }
+
+    &--nav {
+      align-items: flex-end;
+
+      @media (max-width: $bp-lg) {
+        align-items: flex-start;
+      }
+    }
+  }
+
+  &__col-title {
+    font-size: $fs-sm;
+    font-weight: $fw-semibold;
+    color: $color-white;
+    margin: 0 0 $sp-1;
+  }
+
+  // ── Nav liens ─────────────────────────────────────
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: $sp-2;
+
+    @media (max-width: $bp-lg) {
+      align-items: flex-start;
+    }
+
+    a {
+      font-size: $fs-sm;
+      color: rgba($color-white, .65);
+      text-decoration: none;
+      transition: color .2s;
+
+      &:hover { color: $color-white; }
+    }
+  }
+
+  // ── Réseaux sociaux ───────────────────────────────
+  &__socials {
+    display: flex;
+    gap: $sp-3;
+    margin-top: $sp-4;
+  }
+
+  &__social {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba($color-white, .1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba($color-white, .7);
+    text-decoration: none;
+    transition: background .2s, color .2s;
+
+    &:hover {
+      background: rgba($color-white, .2);
+      color: $color-white;
+    }
+  }
+
+  // ── Barre légale ──────────────────────────────────
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: $sp-8;
+    padding-top: $sp-5;
+    border-top: 1px solid rgba($color-white, .12);
+    gap: $sp-4;
+    flex-wrap: wrap;
+
+    span {
+      font-size: $fs-xs;
+      color: rgba($color-white, .4);
+    }
+  }
+
+  &__legal {
+    display: flex;
+    gap: $sp-5;
+    flex-wrap: wrap;
+
+    a {
+      font-size: $fs-xs;
+      color: rgba($color-white, .4);
+      text-decoration: none;
+      transition: color .2s;
+
+      &:hover { color: rgba($color-white, .7); }
+    }
+  }
+}

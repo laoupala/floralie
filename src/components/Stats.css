@@ -1,0 +1,58 @@
+.stats {
+  background-color: #1e4d35;
+  padding: 3rem 0;
+}
+.stats__inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+}
+.stats__inner::before, .stats__inner::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 60%;
+  background: rgba(255, 255, 255, 0.2);
+}
+.stats__inner::before {
+  left: 33.33%;
+}
+.stats__inner::after {
+  left: 66.66%;
+}
+@media (max-width: 768px) {
+  .stats__inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .stats__inner::before, .stats__inner::after {
+    display: none;
+  }
+}
+.stats__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 1rem;
+}
+.stats__value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+@media (max-width: 1024px) {
+  .stats__value {
+    font-size: 3rem;
+  }
+}
+.stats__label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}/*# sourceMappingURL=Stats.css.map */

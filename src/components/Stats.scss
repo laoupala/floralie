@@ -1,0 +1,58 @@
+@import '../styles/variables';
+
+.stats {
+  background-color: $color-green;
+  padding: $sp-12 0;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $sp-8;
+    position: relative;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 60%;
+      background: rgba(255,255,255,0.2);
+    }
+    &::before { left: 33.33%; }
+    &::after  { left: 66.66%; }
+
+    @media (max-width: $bp-md) {
+      grid-template-columns: 1fr;
+      gap: $sp-6;
+
+      &::before, &::after { display: none; }
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $sp-2;
+    text-align: center;
+    padding: $sp-4;
+  }
+
+  &__value {
+    font-size: $fs-3xl;
+    font-weight: $fw-bold;
+    color: $color-white;
+    line-height: 1;
+
+    @media (max-width: $bp-lg) {
+      font-size: $fs-3xl;
+    }
+  }
+
+  &__label {
+    font-size: $fs-sm;
+    color: rgba(255,255,255,0.7);
+    font-weight: $fw-regular;
+  }
+}

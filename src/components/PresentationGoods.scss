@@ -1,0 +1,83 @@
+@use '../styles/variables' as *;
+
+.presentation {
+  padding: $sp-36 0;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: $sp-10;
+    align-items: center;
+  }
+
+  &__text {
+    display: contents;
+    align-items: start;
+    width: 100%;
+
+    @media (max-width: $bp-md) { grid-template-columns: 1fr; }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp($fs-2xl, 4.5vw, 3.5rem);
+    font-weight: $fw-regular;
+    line-height: 1.05;
+    color: $color-white;
+    background: $color-green;
+    padding: $sp-1 $sp-3;
+    border-radius: $r-sm;
+    line-height: 1.25;
+  }
+
+  &__desc {
+    font-size: $fs-sm;
+    color: $color-text-muted;
+    line-height: 1.75;
+    text-align: center;
+  }
+
+  &__video {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    border-radius: $r-2xl;
+    overflow: hidden;
+  
+    video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &__play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    transition: background .2s;
+
+    &::before {
+      content: '';
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: rgba($color-white, .9);
+      position: absolute;
+    }
+
+    svg {
+      position: relative;
+      z-index: 1;
+      color: $color-dark;
+      margin-left: 3px;
+    }
+
+    &:hover::before { background: $color-white; transform: scale(1.08); }
+  }
+}

@@ -1,0 +1,145 @@
+@use '../styles/variables' as *;
+
+.navbar {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 0 $sp-8;
+
+  @media (max-width: $bp-md) { padding: 0 $sp-5; }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: $container-max-1200;
+    margin: 0 auto;
+    height: 64px;
+    gap: $sp-6;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: $sp-5;
+    flex: 1;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  &__sep {
+    display: block;
+    width: 1px;
+    height: 22px;
+    background: $color-border;
+    flex-shrink: 0;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: $sp-1;
+
+    @media (max-width: $bp-md) { display: none; }
+  }
+
+  &__link {
+    font-size: $fs-sm;
+    font-weight: $fw-medium;
+    color: $color-text-muted;
+    padding: $sp-2 $sp-3;
+    border-radius: $r-full;
+    transition: color .2s, background .2s;
+
+    &:hover { color: $color-dark; }
+
+    &--active {
+      color: $color-dark;
+      font-weight: $fw-semibold;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: $sp-3;
+        right: $sp-3;
+        height: 2px;
+        background: $color-green;
+        border-radius: $r-full;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $sp-1;
+
+    @media (max-width: $bp-md) { display: none; }
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    gap: $sp-2;
+    font-size: $fs-sm;
+    font-weight: $fw-medium;
+    color: $color-text-muted;
+    padding: $sp-2 $sp-3;
+    border-radius: $r-full;
+    transition: color .2s, background .2s;
+
+    &:hover {
+      color: $color-dark;
+      background: rgba($color-border, .5);
+    }
+
+    &--basket {
+      border: 1.5px solid $color-border;
+      padding: $sp-2 $sp-4;
+
+      &:hover { border-color: $color-dark; background: transparent; }
+    }
+  }
+
+  &__burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: $sp-2;
+
+    span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: $color-dark;
+      border-radius: 2px;
+    }
+
+    @media (max-width: $bp-md) { display: flex; }
+  }
+
+  &__mobile {
+    display: flex;
+    flex-direction: column;
+    padding: $sp-4 $sp-6;
+    gap: $sp-4;
+    background: $color-white;
+    border-top: 1px solid $color-border;
+
+    a {
+      font-size: $fs-sm;
+      font-weight: $fw-medium;
+      color: $color-text;
+
+      &:hover { color: $color-green; }
+    }
+  }
+}
