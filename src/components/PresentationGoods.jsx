@@ -27,7 +27,7 @@ const PresentationGoods = () => {
         <div className="presentation__video">
           <video
             ref={videoRef}
-            src="public/assets/videos/bouquet_fleur.mp4"
+            src={`${import.meta.env.BASE_URL}assets/videos/bouquet_fleur.mp4`}
             loop
             playsInline
             onPlay={() => setPlaying(true)}

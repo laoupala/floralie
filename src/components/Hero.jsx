@@ -34,7 +34,7 @@ const Hero = () => (
 
     <div className="hero__center">
       <img
-        src="public/assets/images/fleuriste.jpeg"
+        src={`${import.meta.env.BASE_URL}assets/images/fleuriste.jpeg`}
         alt="Monstera — plante tropicale d'intérieur"
       />
     </div>

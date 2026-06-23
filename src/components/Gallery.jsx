@@ -2,54 +2,56 @@ import React, { useState } from 'react';
 import './Gallery.scss';
 
 const PHONE = '+33123456789';
+const BASE = import.meta.env.BASE_URL;
+
 
 const bouquets = [
   {
     title: 'Éclat de Printemps',
     category: 'Saisonnier',
-    img: 'public/assets/images/bouquet_Printemps.jpeg',
+    img: '${BASE}assets/images/bouquet_Printemps.jpeg',
     size: 'large',
   },
   {
     title: 'Douceur Pastel',
     category: 'Mariage',
-    img: 'public/assets/images/bouquet_pastel.jpeg',
+    img: '${BASE}assets/images/bouquet_pastel.jpeg',
     size: 'small',
   },
   {
     title: 'Rouge Intense',
     category: 'Romantique',
-    img: 'public/assets/images/bouquet_rouge.jpeg',
+    img: '${BASE}assets/images/bouquet_rouge.jpeg',
     size: 'small',
   },
   {
     title: 'Blanc Immaculé',
     category: 'Mariage',
-    img: 'public/assets/images/bouquet_blanc.jpeg',
+    img: '${BASE}assets/images/bouquet_blanc.jpeg',
     size: 'small',
   },
   {
     title: 'Jardin Sauvage',
     category: 'Bohème',
-    img: 'public/assets/images/bouquet_sauvage.jpeg',
+    img: '${BASE}assets/images/bouquet_sauvage.jpeg',
     size: 'large',
   },
   {
     title: "Soleil d'Or",
     category: 'Saisonnier',
-    img: 'public/assets/images/bouquet_soleil.jpeg',
+    img: '${BASE}assets/images/bouquet_soleil.jpeg',
     size: 'small',
   },
   {
     title: 'Violet Mystère',
     category: 'Événement',
-    img: 'public/assets/images/bouquet_violet.jpeg',
+    img: '${BASE}assets/images/bouquet_violet.jpeg',
     size: 'small',
   },
   {
     title: 'Tropiques',
     category: 'Exotique',
-    img: 'public/assets/images/bouquet_tropiques.jpeg',
+    img: '${BASE}assets/images/bouquet_tropiques.jpeg',
     size: 'large',
   },
 ];

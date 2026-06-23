@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './IndoorCollection.scss';
 
+const BASE = import.meta.env.BASE_URL;
+
 const SunDirect = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <circle cx="12" cy="12" r="5" fill="currentColor" fillOpacity=".2"/>
@@ -33,42 +35,42 @@ const allItems = [
   {
     title: 'Pachira',
     desc: `Surnommé arbre à bonheur, le Pachira apporte une énergie douce et généreuse dans chaque pièce. Avec son tronc tressé et son feuillage vert vif, il s'installe aussi naturellement dans un salon qu'il le transforme.`,
-    img: 'public/assets/images/pachira.jpg',
+    img: '${BASE}assets/images/pachira.jpg',
     sun: 'indirect',
     water: 'low',
   },
   {
     title: 'Bonsaï',
     desc: `Un arbre entier, dans la paume de la main. Le bonsaï est une invitation à ralentir, à observer, à prendre soin. Chaque branche est une histoire et c'est vous qui écrivez la suite.`,
-    img: 'public/assets/images/bonzai.jpg',
+    img: '${BASE}assets/images/bonzai.jpg',
     sun: 'direct',
     water: 'medium',
   },
   {
     title: 'Calathea',
     desc: `Ses feuilles sont des tableaux. Nervures contrastées, reflets violets, motifs qui semblent peints à la main la Calathea est la plante des esprits curieux et des intérieurs qui osent la couleur.`,
-    img: 'public/assets/images/calathea.jpg',
+    img: '${BASE}assets/images/calathea.jpg',
     sun: 'indirect',
     water: 'high',
   },
   {
     title: 'Ficus',
     desc: `Un grand classique qui n'a rien perdu de son élégance. Le Ficus structure un espace, adoucit une pièce trop angulaire, et pousse paisiblement si on lui offre une bonne lumière et un peu de régularité.`,
-    img: 'public/assets/images/ficus.jpg',
+    img: '${BASE}assets/images/ficus.jpg',
     sun: 'direct',
     water: 'medium',
   },
   {
     title: 'Monstera',
     desc: `Impossible de passer à côté. Avec ses grandes feuilles découpées comme à la main, le Monstera est devenu une icône et il le mérite. Il grandit, il s'étale, il prend vie. Une vraie personnalité végétale.`,
-    img: 'public/assets/images/monstera.jpg',
+    img: '${BASE}assets/images/monstera.jpg',
     sun: 'indirect',
     water: 'medium',
   },
   {
     title: 'Orchidée',
     desc: `Elle a l'air fragile, mais elle sait durer. L'orchidée est la plante des attentions silencieuses celle qu'on offre pour dire quelque chose sans forcément trouver les mots. Raffinée, délicate, inoubliable.`,
-    img: 'public/assets/images/orchidee.jpg',
+    img: '${BASE}assets/images/orchidee.jpg',
     sun: 'indirect',
     water: 'low',
   },
