@@ -1,0 +1,60 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #f4f1ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+.loader--fade {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+.loader__svg {
+  animation: loader-breathe 2.2s ease-in-out infinite;
+  will-change: transform;
+}
+.loader__pct {
+  font-family: "Anton", "Impact", sans-serif;
+  font-size: 2.25rem;
+  color: #0d1f18;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.loader__pct small {
+  font-size: 1rem;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #5a5a5a;
+  margin-left: 2px;
+}
+.loader__bar {
+  width: 160px;
+  height: 2px;
+  background: #e0dbd3;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+.loader__fill {
+  height: 100%;
+  background: #1e4d35;
+  border-radius: 9999px;
+  transition: width 50ms linear;
+}
+
+@keyframes loader-breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}/*# sourceMappingURL=Loader.css.map */

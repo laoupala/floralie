@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles/global.scss';
 
+import Loader           from './components/Loader';
 import Navbar            from './components/Navbar';
 import Hero              from './components/Hero';
 import IndoorCollection  from './components/IndoorCollection';
@@ -10,33 +11,39 @@ import Gallery           from './components/Gallery';
 import FAQ               from './components/FAQ';
 import Footer            from './components/Footer';
 
-const App = () => (
-  <>
-    <div style={{ position: 'relative' }}>
-      <Navbar />
-      <Hero />
-    </div>
+const App = () => {
+  const [loaded, setLoaded] = useState(false);
 
-    <main>
-      <section id="indoor-collection">
-        <IndoorCollection />
-      </section>
+  return (
+    <>
+      {!loaded && <Loader onComplete={() => setLoaded(true)} />}
+
+      <div style={{ position: 'relative' }}>
+        <Navbar />
+        <Hero />
+      </div>
+
+      <main>
+        <section id="indoor-collection">
+          <IndoorCollection />
+        </section>
         <Stats />
-      <section id="boutique">
-        <PresentationGoods />
-      </section>
-      <section id="bouquets">
-        <Gallery />
-      </section>
-      <section id="faq">
-        <FAQ />
-      </section>
-    </main>
+        <section id="boutique">
+          <PresentationGoods />
+        </section>
+        <section id="bouquets">
+          <Gallery />
+        </section>
+        <section id="faq">
+          <FAQ />
+        </section>
+      </main>
+
       <section id="contact">
         <Footer />
       </section>
-
-  </>
-);
+    </>
+  );
+};
 
 export default App;

@@ -1,0 +1,65 @@
+@use '../styles/variables' as *;
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: $color-off-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .7s ease, visibility .7s ease;
+
+  &--fade {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $sp-5;
+  }
+
+  &__svg {
+    animation: loader-breathe 2.2s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  &__pct {
+    font-family: $font-display;
+    font-size: $fs-2xl;
+    color: $color-dark;
+    line-height: 1;
+    letter-spacing: -0.02em;
+
+    small {
+      font-size: $fs-base;
+      font-family: $font-body;
+      color: $color-text-muted;
+      margin-left: 2px;
+    }
+  }
+
+  &__bar {
+    width: 160px;
+    height: 2px;
+    background: $color-border;
+    border-radius: $r-full;
+    overflow: hidden;
+  }
+
+  &__fill {
+    height: 100%;
+    background: $color-green;
+    border-radius: $r-full;
+    transition: width 50ms linear;
+  }
+}
+
+@keyframes loader-breathe {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.05); }
+}
